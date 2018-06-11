@@ -16,4 +16,9 @@ Change each image tags into latest stable tags:
 
 ###### [Avoid data lost upon restart (for more than one manager)](https://gist.github.com/cdelaitre/85949d8b697359a319e30a678e23d8bd)
 
+###### Config files
 
+Before deploying, check config files:
+   - [kapacitor.conf](https://github.com/influxdata/sandbox/blob/master/kapacitor/config/kapacitor.conf)
+   - [influxdb.conf](https://github.com/influxdata/sandbox/blob/master/influxdb/config/influxdb.conf)
+   - [telegraf](https://github.com/influxdata/sandbox/blob/master/telegraf/telegraf.conf)
