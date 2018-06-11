@@ -2,9 +2,11 @@
 
 On origin machine or cluster with existing TICK stack
 
-###### Ports
+###### Ports and mounting points
 
-Change ports in docker-compose-tick.yml or tear down existing TICK stack
+Change ports in docker-compose-tick.yml or tear down existing TICK stack.
+
+Select desired mounting points to share data with existing stack.
 
 ###### Images version
 
@@ -21,4 +23,4 @@ Change each image tags into latest stable tags:
 Before deploying, check config files:
    - [kapacitor.conf](https://github.com/influxdata/sandbox/blob/master/kapacitor/config/kapacitor.conf)
    - [influxdb.conf](https://github.com/influxdata/sandbox/blob/master/influxdb/config/influxdb.conf)
-   - [telegraf](https://github.com/influxdata/sandbox/blob/master/telegraf/telegraf.conf)
+   - [telegraf.conf](https://github.com/influxdata/sandbox/blob/master/telegraf/telegraf.conf)

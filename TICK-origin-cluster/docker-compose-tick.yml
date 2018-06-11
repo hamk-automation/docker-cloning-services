@@ -12,7 +12,7 @@ services:
           - node.hostname == omen
     volumes:
       # Mount for chronograf database
-      - /var/lib/chronograf:/var/lib/chronograf
+      - chronograf-data:/var/lib/chronograf
     ports:
       # The WebUI for Chronograf is served on port 8888
       - "8888:8888"
@@ -30,11 +30,10 @@ services:
         condition: on-failure
     volumes:
       # Mount for kapacitor data directory
-      - /var/lib/kapacitor:/var/lib/kapacitor
+
       # Mount for kapacitor configuration
       - /etc/kapacitor:/etc/kapacitor
-      # Mount for additional TICK script
-      - /home/kapacitor:/home/kapacitor
+      - /var/lib/kapacitor:/var/lib/kapacitor
     ports:
       # The API for Kapacitor is served on port 9092
       - "9092:9092"
@@ -71,6 +70,7 @@ services:
     ports:
       # The API for InfluxDB is served on port 8086
       - "8086:8086"
-
+volumes:
+  chronograf-data:
 
 
