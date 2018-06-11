@@ -30,10 +30,11 @@ services:
         condition: on-failure
     volumes:
       # Mount for kapacitor data directory
-
+      - /var/lib/kapacitor:/var/lib/kapacitor
       # Mount for kapacitor configuration
       - /etc/kapacitor:/etc/kapacitor
-      - /var/lib/kapacitor:/var/lib/kapacitor
+      # Mount for additional TICK-scripts
+      - /home/harry/kapacitor:/home/kapacitor
     ports:
       # The API for Kapacitor is served on port 9092
       - "9092:9092"
