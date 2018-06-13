@@ -1,4 +1,4 @@
-#Deploy TICK stack with retrieved data on a new cluster
+# Deploy TICK stack with retrieved data on a new cluster
 
 #### Retrieve data on new host
  - Authentication:
@@ -24,6 +24,7 @@ docker run --rm \
     -e "VOLUMERIZE_TARGET=gdocs://pdathuynh@gmail.com/kontti-backup/migrate-$origin_host_name/influxdb" \
     blacklabelops/volumerize restore
 ```
+
       - For kapacitor
 ```
 docker run --rm \
@@ -33,6 +34,7 @@ docker run --rm \
     -e "VOLUMERIZE_TARGET=gdocs://pdathuynh@gmail.com/kontti-backup/migrate-$origin_host_name/kapacitor" \
     blacklabelops/volumerize restore
 ```
+
       - For chronograf
 ```
 docker run --rm \
@@ -49,6 +51,7 @@ Prepair config files from host machine into these directories:
  - etc/telegraf/
  - etc/influxdb/
  - etc/kapacitor/
+
 and compare them with these:
    - [kapacitor.conf](https://github.com/influxdata/sandbox/blob/master/kapacitor/config/kapacitor.conf)
    - [influxdb.conf](https://github.com/influxdata/sandbox/blob/master/influxdb/config/influxdb.conf)
