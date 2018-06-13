@@ -2,7 +2,7 @@
 
 ## Retrieve data on new host
 #### Authentication:
-     Run this one time, ignore if done already
+  Run this one time, ignore if done already
 ```
 docker run -it --rm \
     -v volumerize_cache:/volumerize-cache \
