@@ -1,7 +1,7 @@
 # Deploy TICK stack with retrieved data on a new cluster
 
 #### Retrieve data on new host
- - Authentication:
+###### Authentication:
      Run this one time, ignore if done already
 ```
 docker run -it --rm \
@@ -14,8 +14,9 @@ docker run -it --rm \
     blacklabelops/volumerize backup
 ```
   
-  - Retrieving data from Google drive
-      - For influxdb (in case influx has multiple volumes, see [this](https://github.com/blacklabelops/volumerize))
+###### Retrieving data from Google drive
+      
+  - For influxdb (in case influx has multiple volumes, see [this](https://github.com/blacklabelops/volumerize))
 ```
 docker run --rm \
     -v influx-data:/source \
@@ -25,7 +26,7 @@ docker run --rm \
     blacklabelops/volumerize restore
 ```
 
-      - For kapacitor
+  - For kapacitor
 ```
 docker run --rm \
     -v kapacitor-data:/source \
@@ -35,7 +36,7 @@ docker run --rm \
     blacklabelops/volumerize restore
 ```
 
-      - For chronograf
+  - For chronograf
 ```
 docker run --rm \
     -v chronograf-data:/source \
