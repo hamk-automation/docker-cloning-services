@@ -34,7 +34,7 @@ services:
       # Mount for kapacitor configuration
       - /etc/kapacitor:/etc/kapacitor
       # Mount for additional TICK script
-      - /home/harry/kapacitor:/home/kapacitor
+      - /home/kapacitor:/home/kapacitor
     ports:
       # The API for Kapacitor is served on port 9092
       - "9092:9092"
@@ -73,7 +73,8 @@ services:
       - "8086:8086"
 volumes:
   chronograf-data:
+    name: chronograf-data
   influx-data:
-    name: i_restore
+    name: influx-data
   kapacitor-data:
-    name: k_restore
+    name: kapacitor-data
