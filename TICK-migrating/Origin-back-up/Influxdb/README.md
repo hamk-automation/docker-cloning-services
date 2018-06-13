@@ -13,8 +13,8 @@ Create a container to mount influx-data into Docker a volume name influx_backup
 docker run -dit -p 8086:8086 --name=influx-backup -v influx_backup:/var/lib/influxdb influxdb
 ```
 
-#### Volumerize and migrate to google drive storage
-##### Authorizing
+## Volumerize and migrate to google drive storage
+#### Authorizing
 Run this command first time before any migration
 ```
 docker run -it --rm \
@@ -26,7 +26,7 @@ docker run -it --rm \
     -e "GOOGLE_DRIVE_SECRET=xxxxxxxxxx" \
     blacklabelops/volumerize backup
 ```
-##### Migrating
+#### Migrating
 Run this command to start a volumerize container
 ```
 docker run -d \
@@ -43,7 +43,7 @@ Start an initial full backup:
 docker exec volumerizeI backupFull
 ```
 
-Clean up
+## Clean up
 ```
 docker stop volumerizeI
 docker rm volumerizeI

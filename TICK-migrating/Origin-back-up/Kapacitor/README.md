@@ -13,8 +13,8 @@ Create a container to mount kapacitor-data into Docker a volume name kapacitor_b
 docker run -dit -p 9092:9092 --name=kapacitor-backup -v kapacitor_backup:/var/lib/kapacitor kapacitor
 ```
 
-#### Volumerize and migrate to google drive storage
-##### Authorizing
+## Volumerize and migrate to google drive storage
+#### Authorizing
 Run this command one time before any migration, ignore if done already
 ```
 docker run -it --rm \
@@ -26,7 +26,7 @@ docker run -it --rm \
     -e "GOOGLE_DRIVE_SECRET=xxxxxxxxxx" \
     blacklabelops/volumerize backup
 ```
-##### Migrating
+#### Migrating
 Run this command to start a volumerize container (in case influx has multiple volumes, see [this](https://github.com/blacklabelops/volumerize))
 ```
 docker run -d \
@@ -43,7 +43,7 @@ Start an initial full backup:
 docker exec volumerizeK backupFull
 ```
 
-Clean up
+## Clean up
 ```
 docker stop volumerizeK
 docker rm volumerizeK
