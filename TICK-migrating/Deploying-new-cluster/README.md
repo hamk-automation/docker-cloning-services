@@ -1,7 +1,7 @@
 # Deploy TICK stack with retrieved data on a new cluster
 
-#### Retrieve data on new host
-###### Authentication:
+## Retrieve data on new host
+#### Authentication:
      Run this one time, ignore if done already
 ```
 docker run -it --rm \
@@ -14,7 +14,7 @@ docker run -it --rm \
     blacklabelops/volumerize backup
 ```
   
-###### Retrieving data from Google drive
+#### Retrieving data from Google drive
       
   - For influxdb (in case influx has multiple volumes, see [this](https://github.com/blacklabelops/volumerize))
 ```
@@ -46,7 +46,7 @@ docker run --rm \
     blacklabelops/volumerize restore
 ```
 
-#### Prepairing config files
+## Prepairing config files
 Create this directory for additional TICK scripts: /home/kapacitor
 Prepair config files from host machine into these directories:
  - etc/telegraf/
@@ -58,7 +58,7 @@ and compare them with these:
    - [influxdb.conf](https://github.com/influxdata/sandbox/blob/master/influxdb/config/influxdb.conf)
    - [telegraf.conf](https://github.com/influxdata/sandbox/blob/master/telegraf/telegraf.conf)
 
-#### Deploy TICK stack under Docker
+## Deploy TICK stack under Docker
  - Initialize docker swarm mode
 ```
 docker swarm init
