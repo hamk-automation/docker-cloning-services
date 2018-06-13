@@ -1,21 +1,21 @@
-# Migrate existing influx-data
+# Migrate existing kapacitor-data
 
-Copy influx-data directory to same level with this Dockerfile, then
+Copy kapacitor-data directory to same level with this Dockerfile, then
 
 Run this command
 ```
-docker build -t influxdb .
+docker build -t kapacitor .
 ```
-to build an image of influxdb with existing data.
+to build an image of kapacitor with existing data.
 
-Create a container to mount influx-data into Docker a volume name influx_backup
+Create a container to mount kapacitor-data into Docker a volume name kapacitor_backup
 ```
-docker run -dit -p 8086:8086 --name=influx-backup -v influx_backup:/var/lib/influxdb influxdb
+docker run -dit -p 9092:9092 --name=kapacitor-backup -v kapacitor_backup:/var/lib/kapacitor kapacitor
 ```
 
 #### Volumerize and migrate to google drive storage
 ##### Authorizing
-Run this command first time before any migration
+Run this command one time before any migration, ignore if done already
 ```
 docker run -it --rm \
     -v volumerize_cache:/volumerize-cache \
@@ -30,22 +30,22 @@ docker run -it --rm \
 Run this command to start a volumerize container
 ```
 docker run -d \
-   --name volumerizeI \
+   --name volumerizeK \
    -v volumerize_cache:/volumerize-cache \
    -v volumerize_credentials:/credentials \
-   -v influx_backup:/source:ro \
+   -v kapacitor_backup:/source:ro \
    -e "VOLUMERIZE_SOURCE=/source" \
-   -e "VOLUMERIZE_TARGET=gdocs://pdathuynh@gmail.com/kontti-backup/migrate-$host_name/influxdb" \
+   -e "VOLUMERIZE_TARGET=gdocs://pdathuynh@gmail.com/kontti-backup/migrate-$host_name/kapacitor" \
    blacklabelops/volumerize
 ```
 Start an initial full backup:
 ```
-docker exec volumerizeI backupFull
+docker exec volumerizeK backupFull
 ```
 
 Clean up
 ```
-docker stop volumerizeI
-docker rm volumerizeI
-docker image rm influxdb
+docker stop volumerizeK
+docker rm volumerizeK
+docker image rm kapacitor
 ```
