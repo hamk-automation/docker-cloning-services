@@ -1,6 +1,6 @@
 # On origin cluster
 
-On origin machine or cluster with existing TICK stack
+On origin machine or cluster with existing TICK stack using bind mount
 
 ###### Ports and mounting points
 
